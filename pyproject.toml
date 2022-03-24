@@ -12,6 +12,7 @@ matplotlib = "^3.5.1"
 python-dotenv = "^0.19.2"
 requests = "^2.27.1"
 Flask = "^2.0.3"
+WTForms = "^3.0.1"
 
 [tool.poetry.dev-dependencies]
 autopep8 = "^1.6.0"

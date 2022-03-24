@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="control-board">
+        <h4>Report Controller </h4>
+        <form method="POST" action="/generate-report">
+            <div>
+                <div>
+                    <label  for="startdate-input">Startdate</label>
+                    <input  name="startdate" id="startdate-input" type="date"/>
+                </div>
+                <div>
+                    <label  for="enddate-input">Startdate</label>
+                    <input name="enddate" id="startdate-input" type="date"/>
+                </div>
+                <div>
+                    <label  for="listtasks-checkbox">List Tasks</label>
+                    <input name="list-tasks" id="startdate-input" type="checkbox"/>
+                </div>
+                <button class="primary-btn" type="submit">Generate Report</button>
+            </div>
+        </form>
+    </div>
+    {% if entries %}
+        Found entries
+    {% endif %}
+    <table>
+        <thead>
+            <th>a</th>
+            <th>b</th>
+            <th>b</th>
+            <th>b</th>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+</body>
+</html>
