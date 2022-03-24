@@ -1,0 +1,59 @@
+{
+  "data": [
+    {
+      "id": "1963465985517105840",
+      "task": {
+        "id": "1vwwavv",
+        "custom_id": "JOSH-917",
+        "name": "woof",
+        "status": {
+          "status": "open yes",
+          "color": "#d3d3d3",
+          "type": "open",
+          "orderindex": 0
+        },
+        "custom_type": null
+      },
+      "wid": "300702",
+      "user": {
+        "id": 1,
+        "username": "first_name last_name",
+        "email": "test@gmail.com",
+        "color": "#08c7e0",
+        "initials": "JK",
+        "profilePicture": "https://dev-attachments-public.clickup.com/profilePictures/1_HHk.jpg"
+      },
+      "billable": false,
+      "start": "1592841559129",
+      "end": "1592845899021",
+      "duration": "4339892",
+      "description": "",
+      "tags": [],
+      "source": "clickup",
+      "at": "1592845899021",
+      "task_location": {
+        "list_id": 1560300071,
+        "folder_id": 468300080,
+        "space_id": 22800253,
+        "list_name": "List",
+        "folder_name": "Folder",
+        "space_name": "Space"
+      },
+      "task_tags": [
+        {
+          "name": "content-request",
+          "tag_fg": "#800000",
+          "tag_bg": "#2ecd6f",
+          "creator": 301828
+        },
+        {
+          "name": "marketing-okr",
+          "tag_fg": "#800000",
+          "tag_bg": "#7C4DFF",
+          "creator": 301828
+        }
+      ],
+      "task_url": "https://staging.clickup.com/t/1vwwavv"
+    }
+  ]
+}

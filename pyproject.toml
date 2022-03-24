@@ -9,8 +9,12 @@ license = "MIT"
 python = "^3.8"
 pandas = "^1.4.1"
 matplotlib = "^3.5.1"
+python-dotenv = "^0.19.2"
+requests = "^2.27.1"
+Flask = "^2.0.3"
 
 [tool.poetry.dev-dependencies]
+autopep8 = "^1.6.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
