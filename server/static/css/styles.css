@@ -1,9 +1,17 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap');
 
+*::before, *::after {
+    box-sizing: inherit;
+}
+
+h1, h2, h3, h4, h5 {
+    margin: 0;
+}
+
 html {
     font-family: 'Poppins', sans-serif;
-    color: rgb(39, 39, 39)
+    color: rgb(39, 39, 39);
 }
 
 .control-board {
@@ -12,6 +20,7 @@ html {
     border-color: grey;
     border-radius: 16px;
     padding: 16px;
+    background-color: white;
 }
 
 .control-board > form > div {
@@ -34,5 +43,28 @@ html {
     font-size: small;
     padding: 4px 8px;
     cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-style: solid;
+    border-radius: 16px;
+    border-width: 1px;
+    margin-top: 16px;
+    background-color: white;
+}
+
+
+th, td {
+    text-align: center;
+    padding: 0.8rem 1.5rem;
+}
+
+tr:nth-child(even) {
+    background-color: aliceblue;
+}
+
+th {
+    border-bottom: 1px solid black;
 }
 

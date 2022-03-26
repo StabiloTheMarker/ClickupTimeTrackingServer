@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{%block content %} 
+    {% import 'table_data.html' as table_data %} 
+    {% if not data.empty %}
+         {{ table_data.table_data(data) }} 
+    {% endif %} 
+{% endblock %}

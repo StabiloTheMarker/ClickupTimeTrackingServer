@@ -1,10 +1,15 @@
 from __future__ import annotations
 from ast import Dict, List
+from calendar import monthrange
 from dataclasses import dataclass
 import logging
 import datetime as dt
+import pandas as pd
 import requests
 import time
+import math
+
+from report_generator import TEAM_ID
 
 logger = logging.getLogger(__name__)
 
@@ -107,3 +112,39 @@ class ClickUpApiClient:
             logger.error(
                 f"There was an exception getting time_entries for Team id {team_id}: {str(e)}")
             raise Exception(str(e))
+
+    def get_hours_worked_per_day_for_month(self, start_date: dt.datetime, end_date: dt.datetime, list_names: List[str]) -> pd.DataFrame:
+        entries: List[TimeEntry] = self.get_time_entries(TEAM_ID, start_date, end_date)
+        date_index = []
+        row_entries = []
+        if not entries:
+            return None
+        for entry in entries:
+            list_name = entry.list_name
+            at = entry.at
+            duration = entry.duration
+            if list_name in list_names:
+                date_index.append(at.date())
+                list_index = list_names.index(list_name)
+                temp_row = [0 for _ in list_names]
+                temp_row[list_index] = duration
+                row_entries.append(temp_row)
+        df = pd.DataFrame(data=row_entries)
+        df = pd.concat([df, pd.Series(date_index)], axis=1)
+        df.columns = list_names + ["date"]
+        df = df.groupby(by="date").sum()
+        temp_index = df.index
+        df = df.apply(lambda series: pd.Series([math.ceil(x) for x in series]))
+        df.index = temp_index
+
+        # Fill out the rest of the month with zeros
+        merge_index = [str(dt.date(2022, start_date.month, d))
+                    for d in range(start_date.day, end_date.day + 1)]
+        for i in merge_index:
+            if i not in [str(x) for x in df.index]:
+                temp_df = pd.DataFrame(
+                    data=[[0]*len(list_names)], index=[i], columns=list_names)
+                df = pd.concat([df, temp_df], axis=0)
+        df.index = [x.date() for x in pd.to_datetime(df.index)]
+        df = df.sort_index()
+        return df
